@@ -31,6 +31,9 @@ jobs:
       - name: Gradle Build
         run: ./gradlew build
 
+      - name: JaCoCo Code Coverage
+        run: ./gradlew jacocoTestReport
+
       # Runs a single command using the runners shell
       - name: SonarCloud Scan
         run: ./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=${{ secrets.SONAR_ORG }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
